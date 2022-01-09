@@ -32,30 +32,16 @@ app.use('/api/users', userRoute);
 app.use('/api/orders', orderRoute);
 app.use('/api/upload', uploadRoute);
 
-app.post('/verification', (req, res) => {
-  // do a validation
-  const secret = process.env.RAZORPAY_SECRET;
-
-  console.log(req.body);
-
-  const shasum = crypto.createHmac('sha256', secret);
-  shasum.update(JSON.stringify(req.body));
-  const digest = shasum.digest('hex');
-
-  console.log(digest, req.headers['x-razorpay-signature']);
-
-  if (digest === req.headers['x-razorpay-signature']) {
-    console.log('request is legit');
-    // process it
-    res.status(200).json(req.body);
-  } else {
-    res.status(400);
-    throw new Error('Invalid request');
-  }
-});
-
 const __dirname = path.resolve();
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  });
+}
 
 app.use(notFound);
 app.use(errorHandler);
