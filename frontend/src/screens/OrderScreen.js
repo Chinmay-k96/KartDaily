@@ -289,7 +289,7 @@ const OrderScreen = ({ match, history }) => {
                 style={{ padding: '10px', color: 'red', textAlign: 'center' }}
               >
                 <div>Use fake details as this is a test app</div>
-                <div>Use sample card : 4111 1111 1111 1111</div>
+                <div>Use sample card : 5267 3181 8797 5449, Any future expiry date and any CVV</div>
               </div>
             )}
           </Card>

@@ -10,25 +10,24 @@
     "frontend": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run frontend\"",
     "data:import": "node backend/seeder",
-    "data:destroy": "node backend/seeder -d",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+    "data:destroy": "node backend/seeder -d"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.1",
-    "concurrently": "^6.4.0",
+    "body-parser": "^1.20.3",
+    "concurrently": "^9.1.0",
     "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
     "express-async-handler": "^1.2.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.1.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.1",
     "morgan": "^1.10.0",
-    "multer": "^1.4.4",
-    "nodemailer": "^6.7.2",
-    "nodemon": "^2.0.15",
-    "razorpay": "^2.8.0"
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.16",
+    "nodemon": "^3.1.7",
+    "razorpay": "^2.9.5"
   }
 }
